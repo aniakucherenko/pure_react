@@ -158,5 +158,23 @@ console.log(author, title, genres)
 // const primaryGenre = genres[0]
 // const secondaryGenre = genres[1]
 
-const [primaryGenre, secondaryGenre] = genres
-console.log(primaryGenre, secondaryGenre)
+const [primaryGenre, secondaryGenre, ...otherGenres] = genres
+console.log(primaryGenre, secondaryGenre, otherGenres)
+
+const newGenres = [...genres, 'epic fantacy']
+
+const updatedBook = {
+  ...book,
+  //Adding a new property
+  moviePublicationDate: '2001-12-19',
+  //Overwriting existing property
+  pages: 1234,
+}
+updatedBook
+
+//TEMPLATE LITERALS
+
+const summary = `a book ${title} with ${pages} pages and ${
+  hasMovieAdaptation ? '' : 'not'
+} been movieadaptated`
+summary
