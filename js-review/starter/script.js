@@ -178,3 +178,39 @@ const summary = `a book ${title} with ${pages} pages and ${
   hasMovieAdaptation ? '' : 'not'
 } been movieadaptated`
 summary
+
+//Function declaration
+// function getYear(str) {
+//   return str.split("-")[0]
+// }
+
+//Function expression
+const getYear = (str) => {
+  return str.split('-')[0]
+}
+console.log(getYear(publicationDate))
+
+console.log(true && 'Some string')
+console.log(false && 'Some string')
+
+console.log(hasMovieAdaptation && 'This book has a movie')
+
+//falsy: 0, '', null, undefined
+console.log('jonas' && 'Some string')
+console.log(0 && 'Some string')
+
+console.log(true || 'Some string')
+console.log(false || 'Some string')
+
+console.log(book.translations.spanish)
+
+const spanishTranslation = book.translations.spanish || 'NOT TRANSLATED'
+
+spanishTranslation
+
+console.log(book.reviews.librarything.reviewsCount)
+const countWrong = book.reviews.librarything.reviewsCount || 'no data'
+countWrong
+
+const count = book.reviews.librarything.reviewsCount ?? 'no data'
+count
