@@ -145,7 +145,8 @@ function getBook(id) {
 
 //Dectructuring
 
-const book = getBook(2)
+/*
+const book = getBook(3)
 book
 // const title = book.title
 // const author = book.author
@@ -208,13 +209,59 @@ const spanishTranslation = book.translations.spanish || 'NOT TRANSLATED'
 
 spanishTranslation
 
-console.log(book.reviews.librarything.reviewsCount)
-const countWrong = book.reviews.librarything.reviewsCount || 'no data'
-countWrong
+// console.log(book.reviews.librarything.reviewsCount)
+// const countWrong = book.reviews.librarything.reviewsCount || 'no data'
+// countWrong
 
-const count = book.reviews.librarything.reviewsCount ?? 'no data'
-count
+// const count = book.reviews.librarything.reviewsCount ?? 'no data'
+// count
 
 function getTotalReviewCount(book) {
-  const goodread = book.reviews.goodreads.reviewsCount
+  const goodreads = book.reviews.goodreads.reviewsCount
+  const librarything = book.reviews.librarything?.reviewsCount ?? 0 
+  librarything
+
+  return goodreads + librarything
 }
+
+console.log(getTotalReviewCount(book))
+*/
+
+const books = getBooks()
+
+const titles = books.map((book) => book.title)
+titles
+
+const essentialData = books.map((book) => {
+  return {
+    title: book.title,
+    author: book.author,
+  }
+})
+
+essentialData
+
+const longBooks = books
+  .filter((book) => book.pages > 500)
+  .filter((book) => book.hasMovieAdaptation)
+
+longBooks
+
+const adventureBooks = books
+  .filter((books) => books.genres.includes('adventure'))
+  .map((book) => book.title)
+
+adventureBooks
+
+const pagesAllBooks = books.reduce((acc, book) => acc + book.pages, 0)
+
+pagesAllBooks
+
+const arr = [3, 13, 4, 7, 1, 8, 6]
+const sorted = arr.slice().sort((a, b) => a - b)
+// const sortedMutated = arr.sort((a, b) => a - b)
+sorted
+arr
+
+const sortByPages = books.slice().sort((a, b) => a.pages - b.pages)
+sortByPages
